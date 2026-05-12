@@ -1,0 +1,30 @@
+# Questões de Prova - Ciência de Dados
+
+1. Em que tipos de problema é mais adequado usar Regressão Linear Múltipla e Regressão Logística? (2 pontos)
+2. Qual a importância do classificador Árvore de Decisão para a interpretação dos dados? (2 pontos)
+3. Descreva cada um dos componentes de uma Série Temporal. (2 pontos)
+4. Mostre a importância de se utilizar a abordagem de Meta-aprendizado como ferramenta para descoberta de informação. (2 pontos)
+5. Qual é a importância de Visualização de Dados para um cientista de dados (2 pontos)
+6. Com relação ao método Máquina de Vetores de Suporte (SVM), mostre duas formas de otimizar seus parâmetros. (2 pontos)
+7. Quais tipos de problemas são preferíveis utilizar Naive Bayes? (2 pontos)
+8. Crie um conjunto de dados com 2 classes para mostrar:
+   a. Uma classificação após usar Árvore de Decisão. (1 ponto)
+   b. Uma regra gerada pela árvore (use pelo menos 2 atributos). (1 ponto)
+9. Com relação aos métodos Rede Neural de Camada Única (Perceptron) e Máquina de Vetores de Suporte (SVM), descreva:
+   a. Que tipos de problemas eles podem resolver em comum. (1 ponto)
+   b. A principal vantagem do SVM sobre o Perceptron (exemplifique). (1 ponto)
+10. De que forma modelos para séries temporais podem ajudar na descoberta de informação? (2 pontos)
+11. Descreva como a Visualização de Dados pode ajudar o cientista de dados. (2 pontos)
+12. Sobre Árvores de Decisão, descreva três vantagens de usar esse método. (1 ponto)
+13. Mostre como o classificador Random Forest pode ser usado para extração de informações a partir de um conjunto de dados. (1 ponto)
+14. Mostre como um sistema usando a abordagem de Meta-aprendizado pode ajudar:
+   a. Empresas (1 ponto)
+   b. Usuários (1 ponto)
+15. Descreva um sistema de Meta-aprendizado (explicando a construção de meta-características, meta-base e meta-aprendiz) usado para recomendar hiperparâmetros do modelo ARIMA. (2 pontos)
+16. Sobre Visualização de Dados, descreva cada uma das seis etapas recomendadas para uma boa apresentação de resultados. (2 pontos)
+17. Cite 3 vantagens de utilizar o classificador Árvore de Decisão para a análise dos dados? (2 pontos)
+18. Descreva a importância de cada um dos parâmetros de uma Rede Neural: número de camadas escondidas, função de ativação e taxa de aprendizagem. (2 pontos)
+19. Supondo que você é $um(a)$ cientista de dados em uma empresa, descreva como você poderia utilizar Meta-aprendizado para economizar tempo e/ou dinheiro dessa empresa. (2 pontos)
+20. No contexto de Visualização de Dados, mostre formas de melhorar o engajamento do público. (2 pontos)
+21. Descreva três vantagens da utilização de Árvores de Decisão quando comparando com o k-NN. (1 ponto)
+22. Supondo que você está responsável pela aplicação de Redes Neurais para identificar se um paciente tem ou não COVID a partir de dados de pacientes, descreva um passo a passo de como você iria encontrar a melhor configuração de Rede Neural que se adeque ao problema. (2 pontos)

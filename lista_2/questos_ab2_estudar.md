@@ -55,6 +55,8 @@ Oxe que brabo, ela é muito importante pq facilida nossa vida, abordagens de met
 
 A importância do Meta-aprendizado como ferramenta de descoberta de informação está na sua capacidade de automatizar e acelerar a extração de conhecimento. Ao utilizar a experiência adquirida em tarefas e bases de dados anteriores, o meta-aprendizado analisa as características do novo problema (meta-features) para recomendar os algoritmos e hiperparâmetros mais eficientes de forma automática. Isso permite uma adaptação rápida a cenários desconhecidos, economizando tempo computacional e exigindo um volume muito menor de dados para gerar insights precisos.
 
+v2 rodrigo: o meta aprendizado tem capacidade de automatizar e acelerar a extração de conhecimento utilizando experiencia adquirida em tarefas e bases de dados anterioroes. Ela analisa o novo problema (meta-features) para recomendar algorimtos e hiper parametros mais eficientes de forma automatica. Isso permite adaptção rápida a cenarios desconhecidos. Sendo muito eonomico
+
 --- 
 
 # 5. Qual é a importância de Visualização de Dados para um cientista de dados (2 pontos)
@@ -263,14 +265,33 @@ b. Usuários (1 ponto): Ajuda proporcionando uma experiência altamente personal
 
 ## **-=- Resposta -=-** 
 
+composto por 3 etapas interligadas:
+Meta-Caracteristicas: Extração de propriedades estatisticas da nova serie temporal para descrever o problema
+Meta-base: Aqui seria nossa base de conhecimento de series temporais passadas mapeado aos hiperparametros do arima que tiveram melhores resultados
+Meta Aprendiz: Algoritmo de ML que receba as melhores meta-caracterisicas e meta-base e infere a configuração ótima dos parametros (p,d,q) de forma instanciada eliminado uma buscas exaustiva
+
 --- 
 
 # 16. Sobre Visualização de Dados, descreva cada uma das seis etapas recomendadas para uma boa apresentação de resultados. (2 pontos)
 
 ### Rascunho
 
+1. entender o problema
+2. visual adeuado
+3. eliminar ruido
+4. focar a atenção no publico, ele vai ser nosso principal target para atingirmos o melhor resultado
+5. pensar como um design, garantir que os dados sejam mostrado de forma simples e intuitiva
+6. storytelling 
+
 
 ## **-=- Resposta -=-** 
+
+1. Entender o contexto: Definir claramente o público-alvo, a mensagem principal e o objetivo da apresentação.
+2. Escolher o visual adequado: Selecionar o tipo de gráfico mais eficaz (barras, linhas, dispersão, etc.) para os dados em questão, evitando formatos complexos ou enganosos.
+3. Eliminar a saturação: Remover elementos visuais desnecessários (lixo visual) que não agregam valor informativo para limpar a visualização.
+4. Focar a atenção: Utilizar atributos pré-atentivos (como cores de destaque e tamanho) para direcionar o olhar da audiência para o insight principal.
+5. Pensar como um designer: Aplicar princípios básicos de design para garantir acessibilidade, bom alinhamento e facilidade de leitura.
+6. Contar uma história: Estruturar a apresentação com uma narrativa lógica e engajadora (começo, meio e fim) para facilitar a compreensão e apoiar a tomada de decisão.
 
 --- 
 
@@ -279,7 +300,17 @@ b. Usuários (1 ponto): Ajuda proporcionando uma experiência altamente personal
 ### Rascunho
 
 
+1. explicabilidade
+2. seleção automatica de features
+3. exige pouco pre processamento
+
+
 ## **-=- Resposta -=-** 
+
+1. explicabilidade
+2. seleção automatica de features
+3. exige pouco pre processamento
+
 
 --- 
 
@@ -290,14 +321,25 @@ b. Usuários (1 ponto): Ajuda proporcionando uma experiência altamente personal
 
 ## **-=- Resposta -=-** 
 
+1. Número de camadas escondidas: Determina a capacidade de extração de caracteristica da rede. Ajustar corretamente evita underfitting e se previde ne overfitting
+2. funçao de ativação: Introduiz a não lienaridade no modelo, sem ele a rede nn conseguiria mapear as **relações complexas** limitando-se as transformações lineares. ELa decide se a info de um neuronio deve ser propagada a diante
+3. taxa de aprendizagem: Controla os pesos a cada interação. Encontrar a taxa ideial impede de convergencia do modelo e lentidão no treinamento 
+
 --- 
 
-# 19. Supondo que você é $um(a)$ cientista de dados em uma empresa, descreva como você poderia utilizar Meta-aprendizado para economizar tempo e/ou dinheiro dessa empresa. (2 pontos)
+# 19. Supondo que você é um(a) cientista de dados em uma empresa, descreva como você poderia utilizar Meta-aprendizado para economizar tempo e/ou dinheiro dessa empresa. (2 pontos)
 
 ### Rascunho
 
+meta aprendizagem é o computador "aprender a aprender" com base em experiencias e tarefas passadas ele se adapta rapidamente ao desconhecimento fornecendo algoritmos e hiperparametros de maneira automatica, eu poderia justamente usar essa vantagem da meta aprendizagem para otimizar tempo na empresa, escolhendo algoritmos de maneira rapida e eficiente. Economizando tempo e dinheiro para a empresa, pois seria rapidamente adaptavel
+
+Algoritmo e hiperparamentros rapidos ou seja, não vai exigir varios testes varios outros treinamentos
 
 ## **-=- Resposta -=-** 
+
+meta aprendizagem é o computador "aprender a aprender" com base em experiencias e tarefas passadas ele se adapta rapidamente ao desconhecimento fornecendo algoritmos e hiperparametros de maneira automatica, eu poderia justamente usar essa vantagem da meta aprendizagem para otimizar tempo na empresa, escolhendo algoritmos de maneira rapida e eficiente. Economizando tempo e dinheiro para a empresa, pois seria rapidamente adaptavel
+
+Algoritmo e hiperparamentros rapidos ou seja, não vai exigir varios testes varios outros treinamentos
 
 --- 
 
@@ -306,45 +348,46 @@ b. Usuários (1 ponto): Ajuda proporcionando uma experiência altamente personal
 ### Rascunho
 
 
+Para melhorar o engajamento do público olhando um gráfico, você deve usar o Storytelling (contar uma narrativa lógica com os dados), aplicar cores de destaque (atributos pré-atentivos) para guiar o olho direto pro insight principal, e eliminar o lixo visual (saturação) para não cansar o cérebro de quem tá vendo a tela.
+
+
 ## **-=- Resposta -=-** 
+
+Para melhorar o engajamento do público olhando um gráfico, você deve usar o Storytelling (contar uma narrativa lógica com os dados), aplicar cores de destaque (atributos pré-atentivos) para guiar o olho direto pro insight principal, e eliminar o lixo visual (saturação) para não cansar o cérebro de quem tá vendo a tela.
 
 --- 
 
-# 20. Descreva três vantagens da utilização de Árvores de Decisão quando comparando com o k-NN. (1 ponto)
+# 21. Descreva três vantagens da utilização de Árvores de Decisão quando comparando com o k-NN. (1 ponto)
+
+### Rascunho
+
+- Vizualição
+- Seleção automaticas de features
+- Sem necesidade de normalização
+
+
+
+## **-=- Resposta -=-**
+
+. Maior Explicabilidade (Árvore é caixa-branca, k-NN é caixa-preta e não explica o motivo da decisão); 2. Seleção automática de features (k-NN usa todas as colunas cegamente e se confunde com ruído); 3. Não exige normalização/padronização prévia dos dados.
+
+--- 
+
+# 22. Supondo que você está responsável pela aplicação de Redes Neurais para identificar se um paciente tem ou não COVID a partir de dados de pacientes, descreva um passo a passo de como você iria encontrar a melhor configuração de Rede Neural que se adeque ao problema. (2 pontos)
 
 ### Rascunho
 
 
 ## **-=- Resposta -=-** 
 
---- 
-
-# 21. Supondo que você está responsável pela aplicação de Redes Neurais para identificar se um paciente tem ou não COVID a partir de dados de pacientes, descreva um passo a passo de como você iria encontrar a melhor configuração de Rede Neural que se adeque ao problema. (2 pontos)
-
-### Rascunho
-
-
-## **-=- Resposta -=-** 
+1. Divisão dos Dados: Separar o conjunto em treino, validação e teste.
+2. Modelo Baseline: Criar uma rede simples inicial (ex: 1 camada oculta com função Sigmoide na saída) para estabelecer uma métrica de base.
+3. Otimização de Hiperparâmetros: Utilizar métodos como Random Search ou Grid Search para explorar diferentes arquiteturas (número de camadas, neurônios, learning rate e dropout).
+4. Prevenção de Overfitting: Aplicar técnicas como Early Stopping durante o treinamento, parando o processo caso o erro na base de validação comece a aumentar.
+5. Avaliação Focada: Escolher a rede final baseando-se em métricas críticas para a área médica, especialmente o Recall (Sensibilidade), para minimizar a taxa de Falsos Negativos (pacientes doentes classificados como saudáveis).
 
 --- 
 
-
-
-
-Dado que já mostrei queria começar a analisar isso
-pegar  oresulto da llm 
-
-texto para 3 partes dessas issue
-
-pega a embbeding de cada parte de texto
-
-analisar
-
-
-
-
-
-componetizar oq eu fiz
 
 
 

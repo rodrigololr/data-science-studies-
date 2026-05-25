@@ -248,7 +248,7 @@ O classificador Random Forest é utilizado na extração de informações princi
 ### Rascunho
 
 a) Empresas: Reduz drasticamente o tempo e o custo computacional de desenvolvimento, pois o sistema utiliza a experiência de aprendizado prévia para se adaptar rapidamente a novos problemas, exigindo um volume muito menor de dados na entrada.
-b) Usuários: O sistema consegue mapear os gostos e necessidades do usuário com pouquíssimas interações iniciais, eliminando o atrito de configurações longas e manuais.
+b) Usuários: O sistema consegue mapear os gostos e nece  ssidades do usuário com pouquíssimas interações iniciais, eliminando o atrito de configurações longas e manuais.
 
 ## **-=- Resposta -=-** 
 

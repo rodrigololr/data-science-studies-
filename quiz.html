@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão Sinistra - Ciência de Dados</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --text: #f8fafc;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 900px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        .progress {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #94a3b8;
+            font-weight: bold;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            background-color: #334155;
+            border: 2px solid #334155;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s;
+            text-align: left;
+            line-height: 1.4;
+        }
+        .option:hover {
+            border-color: var(--primary);
+            background-color: #475569;
+        }
+        .option.correct {
+            background-color: rgba(16, 185, 129, 0.2);
+            border-color: var(--success);
+        }
+        .option.wrong {
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: var(--danger);
+        }
+        .btn-next {
+            margin-top: 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            display: none;
+            font-weight: bold;
+        }
+        .btn-next:hover {
+            background-color: var(--primary-hover);
+        }
+        #result {
+            text-align: center;
+            display: none;
+        }
+        .score {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--success);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="quiz-container">
+    <h1>🔥 Quiz Padrão P&D - Todas as Questões</h1>
+    <div class="progress" id="progress">Questão 1 de X</div>
+    <div class="question" id="question">Carregando trampo...</div>
+    <div class="options" id="options"></div>
+    <button class="btn-next" id="btn-next" onclick="nextQuestion()">Bora pra próxima!</button>
+</div>
+
+<div class="container" id="result">
+    <h1>Trampo Finalizado!</h1>
+    <div class="score" id="score">0 / X</div>
+    <p>Revisão sinistra concluída. Se a nota tá alta, é só ir lá e gabaritar. Sucesso!</p>
+    <button class="btn-next" style="display:block" onclick="location.reload()">Fazer de novo</button>
+</div>
+
+<script>
+    const quizData = [
+        {
+            q: "1. Em que tipos de problema é mais adequado usar Regressão Linear Múltipla e Regressão Logística?",
+            options: [
+                "Ambas são usadas exclusivamente para prever probabilidades e classificar imagens.",
+                "Linear Múltipla para prever variável contínua (valores exatos). Logística para problemas de classificação (probabilidades/classes discretas).",
+                "Linear Múltipla classifica textos (NLP) e Logística agrupa dados por similaridade (clusters).",
+                "Linear Múltipla para séries temporais e Logística para criar meta-características."
+            ],
+            answer: 1
+        },
+        {
+            q: "2. Qual a importância do classificador Árvore de Decisão para a interpretação dos dados?",
+            options: [
+                "Ela processa dados não estruturados como áudio em tempo real.",
+                "Possui alta explicabilidade. Gera regras lógicas visuais (SE-ENTÃO) mostrando de forma transparente o caminho da decisão.",
+                "Garante acurácia de 100% em qualquer base de dados, eliminando o ruído automaticamente.",
+                "Otimiza o uso de memória RAM descartando variáveis categóricas na raiz."
+            ],
+            answer: 1
+        },
+        {
+            q: "3. Descreva cada um dos componentes de uma Série Temporal.",
+            options: [
+                "Tendência (longo prazo), Sazonalidade (frequência fixa), Ciclicidade (flutuação sem período fixo) e Ruído (fator irregular/inesperado).",
+                "Média, Mediana, Desvio Padrão e Variância.",
+                "Input, Output, Hidden Layer e Função de Ativação.",
+                "Treino, Validação, Teste e Predição."
+            ],
+            answer: 0
+        },
+        {
+            q: "4. Qual a importância de se utilizar a abordagem de Meta-aprendizado para descoberta de informação?",
+            options: [
+                "Ele substitui o trabalho do banco de dados relacional.",
+                "Gera visualizações em 3D de forma automática sem código.",
+                "Automatiza e acelera a extração de conhecimento usando experiências passadas para recomendar algoritmos/hiperparâmetros rapidamente.",
+                "Aumenta o custo de processamento, mas garante que os dados nunca sejam perdidos."
+            ],
+            answer: 2
+        },
+        {
+            q: "5. Qual é a importância da Visualização de Dados para um cientista de dados?",
+            options: [
+                "Traduz grandes volumes de dados complexos em visuais acessíveis, agiliza a análise exploratória (outliers) e apoia o Data Storytelling e a tomada de decisão.",
+                "Serve apenas para enfeitar relatórios que os diretores não vão ler.",
+                "Substitui a necessidade de limpar e processar dados na base original.",
+                "Aumenta a precisão matemática dos modelos de rede neural em 20%."
+            ],
+            answer: 0
+        },
+        {
+            q: "6. Com relação ao método SVM, quais são duas formas de otimizar seus parâmetros?",
+            options: [
+                "Backpropagation e DropOut.",
+                "Grid Search (busca exaustiva de todas as combinações) e Random Search (sorteia e avalia combinações aleatórias).",
+                "K-Means e PCA (Principal Component Analysis).",
+                "One-Hot Encoding e Normalização Min-Max."
+            ],
+            answer: 1
+        },
+        {
+            q: "7. Quais tipos de problemas são preferíveis utilizar Naive Bayes?",
+            options: [
+                "Previsão de cotação de ações na bolsa (valores contínuos).",
+                "Sistemas de recomendação de vídeos baseados em imagens.",
+                "Problemas de regressão logística com dados puramente numéricos.",
+                "Classificação de texto/NLP (spam, sentimentos), predições em tempo real e datasets com alta dimensionalidade."
+            ],
+            answer: 3
+        },
+        {
+            q: "8. Qual das opções abaixo representa uma regra válida extraída de uma Árvore de Decisão sobre compra de ativos?",
+            options: [
+                "SE (Dividendo > P/VP) ENTÃO Somar os dois = Comprar.",
+                "SE (Setor == Elétrico) E (P/VP < 1.0) ENTÃO Classe = Sim (Comprar).",
+                "Setor Elétrico + P/VP / 2 = 100% de Acurácia.",
+                "Enquanto P/VP for menor que 1, execute a compra no loop."
+            ],
+            answer: 1
+        },
+        {
+            q: "9. Qual a principal vantagem do SVM sobre a Rede Neural de Camada Única (Perceptron)?",
+            options: [
+                "O SVM busca o hiperplano de Margem Máxima, garantindo maior distância segura e melhor generalização para novos dados.",
+                "O SVM não precisa de dados para treinar, ele usa meta-aprendizado.",
+                "O Perceptron é mais lento, mas o SVM nunca erra a classificação.",
+                "O SVM só funciona com dados numéricos contínuos em formato CSV."
+            ],
+            answer: 0
+        },
+        {
+            q: "10. De que forma modelos para séries temporais podem ajudar na descoberta de informação?",
+            options: [
+                "Apagando colunas nulas automaticamente para limpar o dataset.",
+                "Agrupando usuários por comportamento de navegação em tempo real.",
+                "Extraindo padrões baseados no tempo para: Previsão (Forecasting), Detecção de Anomalias e Identificação de Tendências/Sazonalidade.",
+                "Eles transformam textos em números estruturados (Embeddings)."
+            ],
+            answer: 2
+        },
+        {
+            q: "11. Quais são as três vantagens de usar a Árvore de Decisão?",
+            options: [
+                "Usa Kernel trick, reduz dimensão e requer escalonamento.",
+                "Alta interpretabilidade, pouca necessidade de preparação de dados e seleção de atributos embutida.",
+                "É imune a overfitting, processa redes neurais profundas e não usa memória RAM.",
+                "Classifica imagens, detecta spam melhor que Naive Bayes e prevê números contínuos com perfeição."
+            ],
+            answer: 1
+        },
+        {
+            q: "12. Como o Random Forest extrai informações a partir de um conjunto de dados?",
+            options: [
+                "Usando a métrica de Importância de Atributos (Feature Importance) para ranquear estatisticamente as variáveis de maior peso/decisão.",
+                "Ele converte a base de dados em um mapa de calor (heatmap).",
+                "O algoritmo apaga as colunas menos importantes sozinho antes de treinar.",
+                "Ele cria clusters aleatórios usando a distância euclidiana."
+            ],
+            answer: 0
+        },
+        {
+            q: "13. Como um sistema de Meta-aprendizado ajuda Empresas e Usuários?",
+            options: [
+                "Empresas: recebem gráficos grátis. Usuários: não precisam usar senhas.",
+                "Empresas: não pagam nuvem. Usuários: recebem cupons de desconto.",
+                "Empresas: Reduz custos e tempo de dev (few-shot). Usuários: Personalização fluida e imediata, eliminando o atrito inicial (cold-start).",
+                "Empresas: Aumentam o ruído. Usuários: Precisam preencher mais formulários."
+            ],
+            answer: 2
+        },
+        {
+            q: "14. Quais são as 3 etapas de um sistema de Meta-aprendizado para recomendar o modelo ARIMA?",
+            options: [
+                "Treino, Validação e Teste.",
+                "Meta-Características (raio-x da série), Meta-base (conhecimento passado) e Meta-aprendiz (o algoritmo que recomenda p,d,q).",
+                "Tendência, Sazonalidade e Ruído.",
+                "Grid Search, Random Search e Early Stopping."
+            ],
+            answer: 1
+        },
+        {
+            q: "16. Quais são as 6 etapas recomendadas para uma boa apresentação de Visualização de Dados?",
+            options: [
+                "Entender contexto, Escolher visual adequado, Eliminar saturação, Focar a atenção, Pensar como designer, Contar uma história.",
+                "Coletar, Limpar, Analisar, Prever, Modelar, Faturar.",
+                "Tabela, Gráfico de Barras, Gráfico de Pizza, Histograma, Boxplot, Dispersão.",
+                "Abrir IDE, Importar Pandas, Plotar dados, Dar erro, Arrumar erro, Fechar IDE."
+            ],
+            answer: 0
+        },
+        {
+            q: "17. Cite 3 vantagens de utilizar o classificador Árvore de Decisão para análise de dados.",
+            options: [
+                "Fácil de hackear, rápido na GPU e suporta blockchain.",
+                "Explicabilidade, Seleção automática de features e Exige pouco pré-processamento.",
+                "Acurácia sempre 100%, nunca sobre de overfitting e ignora ruídos.",
+                "Gera margem máxima, usa função sigmoide e resolve séries temporais."
+            ],
+            answer: 1
+        },
+        {
+            q: "18. Qual a importância das Camadas Escondidas, Função de Ativação e Taxa de Aprendizagem (Redes Neurais)?",
+            options: [
+                "Camadas = estética; Ativação = liga o PC; Taxa = tempo de download.",
+                "Camadas = extração de características; Ativação = introduz não-linearidade; Taxa de aprendizagem = controla os ajustes dos pesos a cada iteração.",
+                "Camadas = previne vírus; Ativação = aciona a nuvem; Taxa = regula a CPU.",
+                "Camadas = define as colunas do DB; Ativação = limpa dados nulos; Taxa = exporta o modelo."
+            ],
+            answer: 1
+        },
+        {
+            q: "19. Como o Meta-aprendizado economiza tempo/dinheiro em uma empresa?",
+            options: [
+                "Ele desliga os servidores da empresa de madrugada.",
+                "Ele substitui toda a equipe de T.I. por um único script Python.",
+                "Ele aprende a aprender com tarefas passadas, escolhendo algoritmos e hiperparâmetros de maneira rápida sem exigir testes exaustivos na força bruta.",
+                "Ele converte código de Python para Java automaticamente."
+            ],
+            answer: 2
+        },
+        {
+            q: "20. No contexto de Visualização de Dados, como melhorar o engajamento do público?",
+            options: [
+                "Fazer promoções relâmpago no meio da apresentação.",
+                "Usar Storytelling (narrativa lógica), aplicar cores de destaque (atributos pré-atentivos) e eliminar o lixo visual (saturação).",
+                "Usar muitos efeitos de transição em 3D e colocar memes em todos os slides.",
+                "Apresentar apenas tabelas com os dados brutos para provar autoridade."
+            ],
+            answer: 1
+        },
+        {
+            q: "21. Quais são três vantagens da utilização de Árvores de Decisão quando comparada com o k-NN?",
+            options: [
+                "A Árvore precisa de menos memória RAM, é mais velha e roda em SQL.",
+                "Maior Explicabilidade (caixa-branca), Seleção automática de features (k-NN usa tudo e confunde) e Não exige normalização/padronização dos dados.",
+                "O k-NN não roda em Python, a árvore sim. A árvore usa sigmoide.",
+                "A árvore aceita imagens em 4K, o k-NN só aceita vetores 1D."
+            ],
+            answer: 1
+        },
+        {
+            q: "22. Qual o passo a passo para encontrar a melhor Rede Neural para identificar COVID?",
+            options: [
+                "1. Divisão de dados (Treino/Val/Teste); 2. Modelo Baseline; 3. Otimizar Hiperparâmetros; 4. Early Stopping (prevenir overfitting); 5. Avaliação focada no Recall (Sensibilidade).",
+                "1. Chutar arquitetura; 2. Treinar 100 épocas; 3. Ver se deu bom; 4. Mostrar pro médico; 5. Lançar o app.",
+                "1. Grid Search; 2. Random Forest; 3. SVM; 4. Naive Bayes; 5. Árvore de Decisão.",
+                "1. Normalizar dados; 2. Criar série temporal; 3. Achar sazonalidade; 4. Multiplicar matrizes; 5. Deploy na AWS."
+            ],
+            answer: 0
+        }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    let answered = false;
+
+    const qElement = document.getElementById('question');
+    const optionsElement = document.getElementById('options');
+    const btnNext = document.getElementById('btn-next');
+    const progressElement = document.getElementById('progress');
+    const totalQuestions = quizData.length;
+
+    function loadQuestion() {
+        answered = false;
+        btnNext.style.display = 'none';
+        
+        const q = quizData[currentQ];
+        qElement.textContent = q.q;
+        progressElement.textContent = `Questão ${currentQ + 1} de ${totalQuestions}`;
+        
+        optionsElement.innerHTML = '';
+        q.options.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option';
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(index, btn);
+            optionsElement.appendChild(btn);
+        });
+    }
+
+    function checkAnswer(index, btn) {
+        if (answered) return;
+        answered = true;
+        
+        const correctIndex = quizData[currentQ].answer;
+        const allButtons = optionsElement.querySelectorAll('.option');
+        
+        if (index === correctIndex) {
+            btn.classList.add('correct');
+            score++;
+        } else {
+            btn.classList.add('wrong');
+            allButtons[correctIndex].classList.add('correct');
+        }
+        
+        allButtons.forEach(b => b.style.cursor = 'default');
+        
+        if (currentQ === totalQuestions - 1) {
+            btnNext.textContent = "Ver Resultado Final!";
+        }
+        btnNext.style.display = 'block';
+    }
+
+    function nextQuestion() {
+        currentQ++;
+        if (currentQ < totalQuestions) {
+            loadQuestion();
+        } else {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('score').textContent = `${score} / ${totalQuestions}`;
+        }
+    }
+
+    // Start
+    loadQuestion();
+</script>
+
+</body>
+</html>

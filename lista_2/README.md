@@ -305,7 +305,7 @@ Para base desbalanceada:
 | Robustez | Qual é mais estável entre splits? | Alto |
 | Custo Computacional | Qual treina mais rápido? | Médio |
 | Interpretabilidade | Qual é mais explicável? | Médio |
-|泛化能力 | Qual funciona melhor em novos dados? | Alto |
+| Generalizacao | Qual funciona melhor em novos dados? | Alto |
 
 ### Conclusão Esperada
 
